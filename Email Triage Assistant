@@ -1,0 +1,29 @@
+# Simple Email Triage Assistant
+
+# Keywords that indicate high-priority emails
+HIGH_PRIORITY_KEYWORDS = [
+    "urgent", "asap", "meeting", "deadline", "important", "payment"
+]
+
+def classify_email(email_text):
+    email_text = email_text.lower()
+    
+    for keyword in HIGH_PRIORITY_KEYWORDS:
+        if keyword in email_text:
+            return "High Priority"
+    
+    return "Low Priority"
+
+# Example emails
+emails = [
+    "Urgent: Please review the project deadline",
+    "Lunch plans for tomorrow?",
+    "Important payment update needed",
+    "Weekly newsletter from the company"
+]
+
+# Classify emails
+for email in emails:
+    category = classify_email(email)
+    print(f"Email: '{email}'")
+    print(f"Category: {category}\n")
